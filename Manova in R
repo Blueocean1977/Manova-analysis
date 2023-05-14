@@ -1,0 +1,26 @@
+# Load the `MASS` package.
+library(MASS)
+
+# Load the data.
+data(menarche)
+
+# Perform a one-way MANOVA.
+manova(cbind(age, height) ~ group, data = menarche)
+
+# Summary of the MANOVA results.
+summary(manova(cbind(age, height) ~ group, data = menarche))
+
+# Post-hoc tests.
+pairwise.t.test(menarche$age, menarche$group, p.adjust.method = "holm")
+pairwise.t.test(menarche$height, menarche$group, p.adjust.method = "holm")
+
+This code will perform a one-way MANOVA on the menarche dataset, which contains data on the age and height of girls at menarche. The MANOVA results will be summarized, and post-hoc tests will be performed to compare the age and height of girls in different groups.
+
+Here is a brief explanation of the code:
+
+The library(MASS) command loads the MASS package, which contains the manova() function.
+The data(menarche) command loads the menarche dataset into the workspace.
+The manova(cbind(age, height) ~ group, data = menarche) command performs a one-way MANOVA on the age and height variables, with the group variable as the independent variable.
+The summary(manova(cbind(age, height) ~ group, data = menarche)) command summarizes the MANOVA results.
+The pairwise.t.test(menarche$age, menarche$group, p.adjust.method = "holm") command performs pairwise t-tests on the age variable, with the group variable as the independent variable, and the Holm-Bonferroni correction is used to adjust for multiple comparisons.
+The pairwise.t.test(menarche$height, menarche$group, p.adjust.method = "holm") command performs pairwise t-tests on the height variable, with the group variable as the independent variable, and the Holm-Bonferroni correction is used to adjust for multiple comparisons.
